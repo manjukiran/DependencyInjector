@@ -6,6 +6,21 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		C2EB3D55289F3E4500349BBA /* DependencyInjector-Aggregate */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C2EB3D56289F3E4500349BBA /* Build configuration list for PBXAggregateTarget "DependencyInjector-Aggregate" */;
+			buildPhases = (
+				C2EB3D59289F3E5C00349BBA /* ShellScript */,
+			);
+			dependencies = (
+				C2EB3D5B289F3E8D00349BBA /* PBXTargetDependency */,
+			);
+			name = "DependencyInjector-Aggregate";
+			productName = "DependencyInjector-Aggregate";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		C2EB3C9B289F2C3600349BBA /* DependencyInjector.docc in Sources */ = {isa = PBXBuildFile; fileRef = C2EB3C9A289F2C3600349BBA /* DependencyInjector.docc */; };
 		C2EB3CA1289F2C3600349BBA /* DependencyInjector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EB3C96289F2C3600349BBA /* DependencyInjector.framework */; };
@@ -26,6 +41,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		C2EB3CA2289F2C3600349BBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2EB3C8D289F2C3600349BBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2EB3C95289F2C3600349BBA;
+			remoteInfo = DependencyInjector;
+		};
+		C2EB3D5A289F3E8D00349BBA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C2EB3C8D289F2C3600349BBA /* Project object */;
 			proxyType = 1;
@@ -209,6 +231,9 @@
 					C2EB3C9F289F2C3600349BBA = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
+					C2EB3D55289F3E4500349BBA = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 				};
 			};
 			buildConfigurationList = C2EB3C90289F2C3600349BBA /* Build configuration list for PBXProject "DependencyInjector" */;
@@ -225,6 +250,7 @@
 			projectRoot = "";
 			targets = (
 				C2EB3C95289F2C3600349BBA /* DependencyInjector */,
+				C2EB3D55289F3E4500349BBA /* DependencyInjector-Aggregate */,
 				C2EB3C9F289F2C3600349BBA /* DependencyInjectorTests */,
 			);
 		};
@@ -246,6 +272,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C2EB3D59289F3E5C00349BBA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# make the xcframework from the simulator and iOS packages\nxcodebuild -create-xcframework -framework \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/DependencyInjector.framework\" -framework \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/DependencyInjector.framework\" -output \"${BUILD_DIR}/DependencyInjector.xcframework\" \n\n# open the project's directory in Finder so you can copy your xcframework\n\nopen \"${BUILD_DIR}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C2EB3C92289F2C3600349BBA /* Sources */ = {
@@ -283,6 +329,11 @@
 			isa = PBXTargetDependency;
 			target = C2EB3C95289F2C3600349BBA /* DependencyInjector */;
 			targetProxy = C2EB3CA2289F2C3600349BBA /* PBXContainerItemProxy */;
+		};
+		C2EB3D5B289F3E8D00349BBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2EB3C95289F2C3600349BBA /* DependencyInjector */;
+			targetProxy = C2EB3D5A289F3E8D00349BBA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -410,6 +461,7 @@
 		C2EB3CAB289F2C3600349BBA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -438,6 +490,7 @@
 		C2EB3CAC289F2C3600349BBA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -497,6 +550,24 @@
 			};
 			name = Release;
 		};
+		C2EB3D57289F3E4500349BBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RSQ3955BR9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C2EB3D58289F3E4500349BBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RSQ3955BR9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -523,6 +594,15 @@
 			buildConfigurations = (
 				C2EB3CAE289F2C3600349BBA /* Debug */,
 				C2EB3CAF289F2C3600349BBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2EB3D56289F3E4500349BBA /* Build configuration list for PBXAggregateTarget "DependencyInjector-Aggregate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2EB3D57289F3E4500349BBA /* Debug */,
+				C2EB3D58289F3E4500349BBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
